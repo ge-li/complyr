@@ -1,3 +1,5 @@
 ^complyr\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^docs$
+^README\.Rmd$
