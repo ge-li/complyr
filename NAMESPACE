@@ -2,4 +2,5 @@
 
 export("%>%")
 export(abadie_k)
+export(glm_IF)
 importFrom(magrittr,"%>%")
