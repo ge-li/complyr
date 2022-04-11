@@ -20,8 +20,10 @@ RoxygenNote: 7.1.2
 URL: https://github.com/ge-li/complyr
 BugReports: https://github.com/ge-li/complyr/issues
 Imports: 
+    evd,
     magrittr,
     sandwich,
+    stats,
     upim
 Suggests: 
     testthat (>= 3.0.0)
