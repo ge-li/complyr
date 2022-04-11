@@ -19,10 +19,22 @@
     <loc>/reference/abadie_k.html</loc>
   </url>
   <url>
+    <loc>/reference/abadie_nu.html</loc>
+  </url>
+  <url>
+    <loc>/reference/abadie_v.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dgp_prop_score.html</loc>
+  </url>
+  <url>
     <loc>/reference/glm_IF.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ivpim.html</loc>
   </url>
   <url>
     <loc>/reference/pipe.html</loc>

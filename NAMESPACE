@@ -2,5 +2,8 @@
 
 export("%>%")
 export(abadie_k)
+export(abadie_v)
+export(dgp_prop_score)
 export(glm_IF)
+export(ivpim)
 importFrom(magrittr,"%>%")

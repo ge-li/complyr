@@ -2,7 +2,7 @@
 % Please edit documentation in R/glm_IF.R
 \name{glm_IF}
 \alias{glm_IF}
-\title{Empirical influence function of glm object.}
+\title{Empirical influence function of glm object}
 \usage{
 glm_IF(glm_obj)
 }
@@ -13,7 +13,7 @@ glm_IF(glm_obj)
 matrix A \code{n} by \code{p} matrix.
 }
 \description{
-Empirical influence function of glm object.
+Empirical influence function of glm object
 }
 \examples{
 x1 <- rnorm(1e3)

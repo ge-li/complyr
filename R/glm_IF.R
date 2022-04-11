@@ -1,4 +1,4 @@
-#' Empirical influence function of glm object.
+#' Empirical influence function of glm object
 #'
 #' @param glm_obj The object returned by glm().
 #'
