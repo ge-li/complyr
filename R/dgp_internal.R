@@ -39,7 +39,7 @@
 dgp_internal <- function(n = 200, x1_dist = "normal", x2_dist = "normal", sigma_x = 1,
                          nonlinearity = "sin", ps_link = "logit", ps_trim = 0.05,
                          eta_0 = 0, eta_1 = 0, eta_2 = 0, eta_3 = 0, eta_4 = 0,
-                         p_c = 0.7, rho_a = 0.5, nc_scale = 0.5, nc_shift = 1,
+                         p_c = 0.7, rho_a = 0.5, nc_scale = 0.6, nc_shift = 1,
                          alpha = 1, beta_1 = 0.5, beta_2 = -0.7, beta_3 = 0,
                          sigma_e = 1, error_dist = "gumbel") {
 
@@ -59,7 +59,7 @@ dgp_internal <- function(n = 200, x1_dist = "normal", x2_dist = "normal", sigma_
   # always-takers: scale and shift randomly
   ey[c == 0] <- (ey[c == 0] - alpha) * nc_scale + nc_shift
   # never takers: scale and shift randomly
-  ey[c == 2] <- (ey[c == 2] ) / nc_scale - nc_shift
+  ey[c == 2] <- (ey[c == 2] ) * (- nc_scale) - nc_shift
 
   # add error term
   if (error_dist == "normal") {
