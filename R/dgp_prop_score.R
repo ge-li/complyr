@@ -32,7 +32,8 @@
 #' @export
 #'
 #' @examples
-#' dgp_prop_score(n = 5)
+#' set.seed(42)
+#' dgp_prop_score(n = 6)
 dgp_prop_score <- function(n = 200, x1_dist = "normal", x2_dist = "normal", sigma_x = 1,
                            nonlinearity = "sin", ps_link = "logit", ps_trim = 0.05,
                            eta_0 = 0, eta_1 = 0, eta_2 = 0, eta_3 = 0, eta_4 = 0) {

@@ -14,6 +14,7 @@
 #' @export
 #'
 #' @examples
+#' set.seed(42)
 #' dgp_rct(n = 6)
 dgp_rct <- function(n = 200,
                     p_c = 0.7,

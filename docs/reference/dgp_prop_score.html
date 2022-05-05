@@ -106,13 +106,15 @@ propensity score, implemented by rejection sampling.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">dgp_prop_score</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            x1          x2        x1_t        x2_t lp  ps z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  0.64105664  1.18815386  0.59804263  0.92768125  0 0.5 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  1.06690379  0.02247815  0.87570974  0.02247625  0 0.5 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.75185382  0.41552873  0.68299401  0.40367372  0 0.5 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.08305186  0.23965071 -0.08295642  0.23736334  0 0.5 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  0.73308399 -0.98512475  0.66916457 -0.83334105  0 0.5 1</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">dgp_prop_score</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           x1          x2       x1_t        x2_t lp  ps z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1.3709584  1.51152200  0.9800988  0.99824379  0 0.5 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.5646982 -0.09465904 -0.5351609 -0.09451774  0 0.5 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.3631284  2.01842371  0.3552004  0.90147657  0 0.5 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.6328626 -0.06271410  0.5914554 -0.06267300  0 0.5 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  0.4042683  1.30486965  0.3933462  0.96484938  0 0.5 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -0.1061245  2.28664539 -0.1059254  0.75453631  0 0.5 1</span>
 </code></pre></div>
     </div>
   </div>

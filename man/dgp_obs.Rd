@@ -36,5 +36,6 @@ TODO
 This function inherit dgp_internal(). TODO: ADD MORE DESCRIPTION.
 }
 \examples{
+set.seed(42)
 dgp_obs(n = 6)
 }
