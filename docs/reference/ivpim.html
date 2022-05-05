@@ -58,8 +58,11 @@
   <span class="va">ps_model</span>,
   link <span class="op">=</span> <span class="st">"logit"</span>,
   init <span class="op">=</span> <span class="cn">NULL</span>,
-  tol <span class="op">=</span> <span class="fl">1e-06</span>,
-  max.iter <span class="op">=</span> <span class="fl">200</span>,
+  tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span><span class="op">)</span>,
+  max.iter <span class="op">=</span> <span class="fl">100</span>,
+  nleqslv.global <span class="op">=</span> <span class="st">"none"</span>,
+  trace <span class="op">=</span> <span class="cn">FALSE</span>,
+  test.nleqslv <span class="op">=</span> <span class="cn">FALSE</span>,
   keep.data <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
     </div>
@@ -84,6 +87,12 @@
 <dd><p>numeric Numeric tolerance of <code>nleqslv()</code>.</p></dd>
 <dt>max.iter</dt>
 <dd><p>numeric Maximum iteration of Newton's method.</p></dd>
+<dt>nleqslv.global</dt>
+<dd><p>character The global strategy for Newton's method. See ?nleqslv::nleqslv.</p></dd>
+<dt>trace</dt>
+<dd><p>logical Show Newton's method iteration report if TRUE.</p></dd>
+<dt>test.nleqslv</dt>
+<dd><p>logical Test different global strategies for Newton's method if TRUE. See ?nleqslv::testnslv.</p></dd>
 <dt>keep.data</dt>
 <dd><p>logical Should the returned object keep original data?</p></dd>
 </dl></div>

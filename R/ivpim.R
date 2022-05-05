@@ -11,6 +11,9 @@
 #' @param init numeric Initial guess of Newton's method.
 #' @param tol numeric Numeric tolerance of `nleqslv()`.
 #' @param max.iter numeric Maximum iteration of Newton's method.
+#' @param nleqslv.global character The global strategy for Newton's method. See ?nleqslv::nleqslv.
+#' @param trace logical Show Newton's method iteration report if TRUE.
+#' @param test.nleqslv logical Test different global strategies for Newton's method if TRUE. See ?nleqslv::testnslv.
 #' @param keep.data logical Should the returned object keep original data?
 #'
 #' @return A list containing the estimated coefficients and their covaraince
@@ -18,9 +21,20 @@
 #'           If `keep.data` is `TRUE`, then the inputs `y`, `z`, `a`, `X`, `link`, `w`
 #'           will also be returned.
 #' @export
-ivpim <- function(y, z, a, X, ps_model, link = "logit",
-                      init = NULL, tol = 1e-6, max.iter = 200,
-                      keep.data = FALSE) {
+ivpim <- function(y,
+                  z,
+                  a,
+                  X,
+                  ps_model,
+                  link = "logit",
+                  init = NULL,
+                  tol = sqrt(.Machine$double.eps),
+                  max.iter = 100,
+                  nleqslv.global = "none",
+                  trace = FALSE,
+                  test.nleqslv = FALSE,
+                  keep.data = FALSE
+) {
   n <- NROW(y)
   p <- NCOL(X) + 1
   k <- abadie_k(z, a, ps_model$fitted.values)
@@ -35,6 +49,9 @@ ivpim <- function(y, z, a, X, ps_model, link = "logit",
     init = init,
     tol = tol,
     max.iter = max.iter,
+    nleqslv.global = nleqslv.global,
+    trace = trace,
+    test.nleqslv = test.nleqslv,
     keep.data = keep.data
   )
 

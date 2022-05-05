@@ -12,8 +12,11 @@ ivpim(
   ps_model,
   link = "logit",
   init = NULL,
-  tol = 1e-06,
-  max.iter = 200,
+  tol = sqrt(.Machine$double.eps),
+  max.iter = 100,
+  nleqslv.global = "none",
+  trace = FALSE,
+  test.nleqslv = FALSE,
   keep.data = FALSE
 )
 }
@@ -35,6 +38,12 @@ ivpim(
 \item{tol}{numeric Numeric tolerance of \code{nleqslv()}.}
 
 \item{max.iter}{numeric Maximum iteration of Newton's method.}
+
+\item{nleqslv.global}{character The global strategy for Newton's method. See ?nleqslv::nleqslv.}
+
+\item{trace}{logical Show Newton's method iteration report if TRUE.}
+
+\item{test.nleqslv}{logical Test different global strategies for Newton's method if TRUE. See ?nleqslv::testnslv.}
 
 \item{keep.data}{logical Should the returned object keep original data?}
 }
