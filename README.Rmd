@@ -81,3 +81,4 @@ results <- as.data.frame(rbind(sum_stat(itt_fit),
 results$methods <- c("itt", "pp", "iv")
 results
 ```
+

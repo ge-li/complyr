@@ -71,7 +71,7 @@ results <- as.data.frame(rbind(sum_stat(itt_fit),
 results$methods <- c("itt", "pp", "iv")
 results
 #>   alpha_hat beta_1_hat beta_2_hat alpha_se beta_1_se beta_2_se methods
-#> 1     0.807      0.375     -0.469    0.082     0.042     0.046     itt
-#> 2     1.229      0.464     -0.584    0.089     0.043     0.046      pp
-#> 3     1.186      0.545     -0.674    0.111     0.065     0.072      iv
+#> 1     0.744      0.354     -0.430    0.081     0.042     0.045     itt
+#> 2     1.308      0.468     -0.578    0.090     0.043     0.047      pp
+#> 3     1.168      0.562     -0.703    0.112     0.069     0.078      iv
 ```

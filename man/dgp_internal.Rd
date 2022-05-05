@@ -19,7 +19,7 @@ dgp_internal(
   eta_4 = 0,
   p_c = 0.7,
   rho_a = 0.5,
-  nc_scale = 0.5,
+  nc_scale = 0.7,
   nc_shift = 1,
   alpha = 1,
   beta_1 = 0.5,
