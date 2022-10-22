@@ -24,7 +24,7 @@
 ivpim <- function(y,
                   z,
                   a,
-                  X,
+                  X = NULL,
                   ps_model,
                   link = "logit",
                   init = NULL,
@@ -36,7 +36,11 @@ ivpim <- function(y,
                   keep.data = FALSE
 ) {
   n <- NROW(y)
-  p <- NCOL(X) + 1
+  if (is.null(X)) {
+    p <- 1
+  } else {
+    p <- NCOL(X) + 1
+  }
   k <- abadie_k(z, a, ps_model$fitted.values)
   v <- abadie_v(z, a, ps_model$fitted.values)
   w <- as.vector(t(outer(k, k))) # iv weight
@@ -70,7 +74,12 @@ ivpim <- function(y,
   drifts <- tcrossprod(glm_IF(ps_model), drift_matrix)
 
   # adjusted ivpim sandwich meat
-  U_i <- 2 * t(sapply(split.data.frame(U_raw * w, rep(seq(n), each = n)), colSums) / (n - 1)) # n x p
+  if (p == 1) {
+    U_i <- 2 * sapply(split.data.frame(U_raw * w, rep(seq(n), each = n)), colSums) / (n - 1) # n x p
+  } else {
+    U_i <- 2 * t(sapply(split.data.frame(U_raw * w, rep(seq(n), each = n)), colSums) / (n - 1)) # n x p
+  }
+
   modified_U_i <- U_i + drifts
   ivpim_sandwich_meat <- crossprod(modified_U_i) / n
 
