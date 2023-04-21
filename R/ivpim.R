@@ -60,8 +60,8 @@ ivpim <- function(y,
   kvs <- as.vector(t(outer(k, v * sigma_dot))) # kappa_i * v_j * sigma_dot_j
   vsk <- as.vector(t(outer(v * sigma_dot, k))) # v_i * sigma_dot_i * kappa_j
   ind <- seq_len(n) # c(1, 2, ..., n)
-  drift_right <- kvs * ps_model$x[rep(ind, n), , drop = F] + # (j: 12...n, 12...n, ...)
-                 vsk * ps_model$x[rep(ind, rep(n, n)), , drop = F] # (i: 1...1, 2...2, ...)
+  drift_right <- kvs * model.matrix(ps_model)[rep(ind, n), , drop = F] + # (j: 12...n, 12...n, ...)
+                 vsk * model.matrix(ps_model)[rep(ind, rep(n, n)), , drop = F] # (i: 1...1, 2...2, ...)
   U_raw <- upim::est_fun(upim::create_pseudo_obs(y),
                          upim::new_design_matrix(W),
                          pim_obj$coef,
