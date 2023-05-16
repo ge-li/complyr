@@ -2,7 +2,7 @@
 % Please edit documentation in R/glm_IF.R
 \name{glm_IF}
 \alias{glm_IF}
-\title{Empirical influence function of glm object}
+\title{Empirical influence function of glm/gam object}
 \usage{
 glm_IF(glm_obj)
 }
@@ -13,7 +13,7 @@ glm_IF(glm_obj)
 matrix A \code{n} by \code{p} matrix.
 }
 \description{
-Empirical influence function of glm object
+Empirical influence function of glm/gam object
 }
 \examples{
 x1 <- rnorm(1e3)
@@ -21,4 +21,8 @@ x2 <- rnorm(1e3)
 y <- rbinom(n = 1e3, size = 1, plogis(-1 + x1 + 2 * x2))
 glm_obj <- glm(y ~ x1 + x2, family = binomial(link = "logit"))
 all.equal(crossprod(glm_IF(glm_obj)) / 1e6, sandwich::vcovHC(glm_obj, type = "HC"))
+# Also works with mgcv::gam object for nonparametric first-step estimation
+library(mgcv)
+gam_obj <- gam(y ~ s(x1) + s(x2), family = binomial(link = "logit"), method = "REML")
+all.equal(crossprod(glm_IF(gam_obj)) / 1e6, sandwich::vcovHC(gam_obj, type = "HC"))
 }

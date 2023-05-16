@@ -48,9 +48,10 @@ with comparison to intention-to-treat and per-protocol methods.
 ```{r example}
 library(complyr)
 # Simulate some RCT data with non-compliance, see details in function docs. 
-set.seed(123)
-df <- dgp_rct(
-  n = 1000,
+set.seed(42)
+df <- generate_data(
+  n_obs = 2000,
+  ps_type = "rct",
   p_c = 0.8,
   alpha = 1,
   beta_1 = 0.5,
