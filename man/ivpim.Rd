@@ -8,7 +8,7 @@ ivpim(
   y,
   z,
   a,
-  X,
+  X = NULL,
   ps_model,
   link = "logit",
   init = NULL,

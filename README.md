@@ -38,9 +38,10 @@ per-protocol methods.
 ``` r
 library(complyr)
 # Simulate some RCT data with non-compliance, see details in function docs. 
-set.seed(123)
-df <- dgp_rct(
-  n = 1000,
+set.seed(42)
+df <- generate_data(
+  n_obs = 2000,
+  ps_type = "rct",
   p_c = 0.8,
   alpha = 1,
   beta_1 = 0.5,
@@ -71,7 +72,7 @@ results <- as.data.frame(rbind(sum_stat(itt_fit),
 results$methods <- c("itt", "pp", "iv")
 results
 #>   alpha_hat beta_1_hat beta_2_hat alpha_se beta_1_se beta_2_se methods
-#> 1     0.744      0.354     -0.430    0.081     0.042     0.045     itt
-#> 2     1.308      0.468     -0.578    0.090     0.043     0.047      pp
-#> 3     1.168      0.562     -0.703    0.112     0.069     0.078      iv
+#> 1     0.749      0.395     -0.459    0.055     0.090     0.092     itt
+#> 2     1.163      0.476     -0.622    0.062     0.096     0.097      pp
+#> 3     1.012      0.502     -0.729    0.070     0.112     0.118      iv
 ```

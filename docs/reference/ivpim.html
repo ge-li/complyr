@@ -50,57 +50,87 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ivpim</span><span class="op">(</span>
-  <span class="va">y</span>,
-  <span class="va">z</span>,
-  <span class="va">a</span>,
-  <span class="va">X</span>,
-  <span class="va">ps_model</span>,
-  link <span class="op">=</span> <span class="st">"logit"</span>,
-  init <span class="op">=</span> <span class="cn">NULL</span>,
-  tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span><span class="op">)</span>,
-  max.iter <span class="op">=</span> <span class="fl">100</span>,
-  nleqslv.global <span class="op">=</span> <span class="st">"none"</span>,
-  trace <span class="op">=</span> <span class="cn">FALSE</span>,
-  test.nleqslv <span class="op">=</span> <span class="cn">FALSE</span>,
-  keep.data <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ivpim</span><span class="op">(</span></span>
+<span>  <span class="va">y</span>,</span>
+<span>  <span class="va">z</span>,</span>
+<span>  <span class="va">a</span>,</span>
+<span>  X <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">ps_model</span>,</span>
+<span>  link <span class="op">=</span> <span class="st">"logit"</span>,</span>
+<span>  init <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span><span class="op">)</span>,</span>
+<span>  max.iter <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  nleqslv.global <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>  trace <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  test.nleqslv <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  keep.data <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>y</dt>
 <dd><p>numeric Outcome vector.</p></dd>
+
+
 <dt>z</dt>
 <dd><p>numeric Binary instrument, e.g., randomized treatment assignment.</p></dd>
+
+
 <dt>a</dt>
 <dd><p>numeric Actual received treatment, must be the same length as <code>z</code>.</p></dd>
+
+
 <dt>X</dt>
 <dd><p>numeric Covariates.</p></dd>
+
+
 <dt>ps_model</dt>
 <dd><p>glm First step propensity score <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm()</a></code> object.</p></dd>
+
+
 <dt>link</dt>
 <dd><p>character Link function: "logit", or "probit".</p></dd>
+
+
 <dt>init</dt>
 <dd><p>numeric Initial guess of Newton's method.</p></dd>
+
+
 <dt>tol</dt>
 <dd><p>numeric Numeric tolerance of <code>nleqslv()</code>.</p></dd>
+
+
 <dt>max.iter</dt>
 <dd><p>numeric Maximum iteration of Newton's method.</p></dd>
+
+
 <dt>nleqslv.global</dt>
 <dd><p>character The global strategy for Newton's method. See ?nleqslv::nleqslv.</p></dd>
+
+
 <dt>trace</dt>
 <dd><p>logical Show Newton's method iteration report if TRUE.</p></dd>
+
+
 <dt>test.nleqslv</dt>
 <dd><p>logical Test different global strategies for Newton's method if TRUE. See ?nleqslv::testnslv.</p></dd>
+
+
 <dt>keep.data</dt>
 <dd><p>logical Should the returned object keep original data?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A list containing the estimated coefficients and their covaraince
+    
+
+<p>A list containing the estimated coefficients and their covaraince
 matrix. It also contains the diagnostics of <code>nleqlsv()</code> procedure.
-If <code>keep.data</code> is <code>TRUE</code>, then the inputs <code>y</code>, <code>z</code>, <code>a</code>, <code>X</code>, <code>link</code>, <code>w</code>will also be returned.</p>
+If <code>keep.data</code> is <code>TRUE</code>, then the inputs <code>y</code>, <code>z</code>, <code>a</code>, <code>X</code>, <code>link</code>, <code>w</code></p>
+
+
+<p>will also be returned.</p>
     </div>
 
   </div>
@@ -115,8 +145,7 @@ If <code>keep.data</code> is <code>TRUE</code>, then the inputs <code>y</code>, 
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

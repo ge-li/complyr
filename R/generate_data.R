@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' set.seed(42)
-#' dgp_obs(n = 6)
+#' generate_data(n_obs = 6, ps_type = "la")
 generate_data <- function(n_obs = 200,
                           ps_type = c("la", "nla", "nlna", "omit", "complex", "rct"),
                           p_c = 0.7,
@@ -32,8 +32,8 @@ generate_data <- function(n_obs = 200,
   }
 
   # Generate covariates and propensity scores
-  x1 <- runif(n)
-  x2 <- runif(n)
+  x1 <- stats::runif(n_obs)
+  x2 <- stats::runif(n_obs)
   ps_type = match.arg(ps_type)
   if (ps_type == "la") {
     eta <- 1 + 2 * x1 - 3 * x2
@@ -42,19 +42,19 @@ generate_data <- function(n_obs = 200,
   } else if (ps_type == "nlna") {
     eta <- sin(2 * pi * x1) * exp(x2)
   } else if (ps_type == "omit") {
-    eta <- 1 + 2 * x1 - 3 * x2 + 0.3 * rnorm(n)
+    eta <- 1 + 2 * x1 - 3 * x2 + 0.3 * stats::rnorm(n_obs)
   } else if (ps_type == "complex") {
     eta <- sin(1 / x1) * cos(1 / x2)
   } else if (ps_type == "rct") {
-    eta <- rep(0, n)
+    eta <- rep(0, n_obs)
   }
-  p <- plogis(eta)
-  z <- rbinom(n, 1, p)
+  p <- stats::plogis(eta)
+  z <- stats::rbinom(n_obs, 1, p)
   df <- data.frame(x1, x2, eta, p, z)
 
   # Assign each subject to a group: always-taker, complier, never-taker
   principle_strata_prob <- c((1 - p_c) / 2, p_c, (1 - p_c) / 2)
-  c <- sample(c(0, 1, 2), n, replace = T, prob = principle_strata_prob)
+  c <- sample(c(0, 1, 2), n_obs, replace = T, prob = principle_strata_prob)
 
   a <- (c == 0) + df$z * (c == 1) # actual treatment
 
@@ -65,9 +65,9 @@ generate_data <- function(n_obs = 200,
 
   # Add error term
   if (error_dist == "normal") {
-    err <- stats::rnorm(n, sd = 1 / sqrt(2))
+    err <- stats::rnorm(n_obs, sd = 1 / sqrt(2))
   } else if (error_dist == "gumbel") {
-    err <- evd::rgumbel(n, scale = 1)
+    err <- evd::rgumbel(n_obs, scale = 1)
   } else {
     stop("Error term must be either normal or gumbel!")
   }
