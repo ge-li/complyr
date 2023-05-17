@@ -36,15 +36,15 @@ generate_data <- function(n_obs = 200,
   x2 <- stats::runif(n_obs)
   ps_type = match.arg(ps_type)
   if (ps_type == "la") {
-    eta <- 1 + 2 * x1 - 3 * x2
+    eta <- 0.5 + x1 - 2 * x2
   } else if (ps_type == "nla") {
     eta <- -2 + sin(2 * pi * x1) + exp(x2)
   } else if (ps_type == "nlna") {
     eta <- sin(2 * pi * x1) * exp(x2)
   } else if (ps_type == "omit") {
-    eta <- 1 + 2 * x1 - 3 * x2 + 0.3 * stats::rnorm(n_obs)
+    eta <- stats::runif(n_obs, -2, 2)
   } else if (ps_type == "complex") {
-    eta <- sin(1 / x1) * cos(1 / x2)
+    eta <- exp(sin(1 / x1)) * cos(1 / x2)
   } else if (ps_type == "rct") {
     eta <- rep(0, n_obs)
   }
